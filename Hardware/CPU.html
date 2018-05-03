@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/j8r/hardware">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Hardware::CPU - github.com/j8r/hardware</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/j8r/hardware/Hardware" data-name="hardware">
+      <a href="../Hardware.html">Hardware</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/j8r/hardware/Hardware/CPU" data-name="hardware::cpu">
+      <a href="../Hardware/CPU.html">CPU</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/j8r/hardware/Hardware/Memory" data-name="hardware::memory">
+      <a href="../Hardware/Memory.html">Memory</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/j8r/hardware/Hardware/PID" data-name="hardware::pid">
+      <a href="../Hardware/PID.html">PID</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Hardware::CPU
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Hardware/CPU.html">Hardware::CPU</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>CPU related informations of your system.</p>
+
+<pre><code>cpu <span class="o">=</span> <span class="t">Hardware</span><span class="t">::</span><span class="t">CPU</span>.<span class="k">new</span>
+loop <span class="k">do</span>
+  sleep <span class="n">1</span>
+  cpu.used.to_i <span class="c"># =&gt; 17</span>
+<span class="k">end</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L10" target="_blank">hardware/cpu.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+          <div class="summary"><p>Creates a new <code><a href="../Hardware/CPU.html">Hardware::CPU</a></code> based on the current memory state.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#previous_info%3ANamedTuple%28%29-class-method" class="signature"><strong>.previous_info</strong> : NamedTuple()</a>
+        
+          <div class="summary"><p>Returns the previous used, idle and total CPU time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#previous_info%3D%28previous_info%3ANamedTuple%28%29%29-class-method" class="signature"><strong>.previous_info=</strong>(previous_info : NamedTuple())</a>
+        
+          <div class="summary"><p>Returns the previous used, idle and total CPU time.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#guest%3AInt32-instance-method" class="signature"><strong>#guest</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "guest" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#guest_nice%3AInt32-instance-method" class="signature"><strong>#guest_nice</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "guest_nice" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#idle%3AInt32-instance-method" class="signature"><strong>#idle</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "idle" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#info%3ANamedTuple%28%29-instance-method" class="signature"><strong>#info</strong> : NamedTuple()</a>
+        
+          <div class="summary"><p>Returns the current used, idle and total CPU time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#iowait%3AInt32-instance-method" class="signature"><strong>#iowait</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "iowait" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#irq%3AInt32-instance-method" class="signature"><strong>#irq</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "irq" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#nice%3AInt32-instance-method" class="signature"><strong>#nice</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "nice" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#softirq%3AInt32-instance-method" class="signature"><strong>#softirq</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "softirq" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#stat%3AArray%28Int32%29-instance-method" class="signature"><strong>#stat</strong> : Array(Int32)</a>
+        
+          <div class="summary"><p>Returns a parsed <code>/proc/stat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#steal%3AInt32-instance-method" class="signature"><strong>#steal</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "steal" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#system%3AInt32-instance-method" class="signature"><strong>#system</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "system" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#used%28update%3Dtrue%29%3AFloat32-instance-method" class="signature"><strong>#used</strong>(update = <span class="n">true</span>) : Float32</a>
+        
+          <div class="summary"><p>Returns the CPU used in percentage based on <code><a href="../Hardware/CPU.html#previous_info%3ANamedTuple%28%29-class-method">.previous_info</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#user%3AInt32-instance-method" class="signature"><strong>#user</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the "user" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Creates a new <code><a href="../Hardware/CPU.html">Hardware::CPU</a></code> based on the current memory state.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="previous_info:NamedTuple()-class-method">
+      <div class="signature">
+        
+        def self.<strong>previous_info</strong> : NamedTuple()
+
+        <a class="method-permalink" href="#previous_info%3ANamedTuple%28%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the previous used, idle and total CPU time. Used to store the previous CPU time informations to calculate the percentage in<code><a href="../Hardware/CPU.html#used%28update%3Dtrue%29%3AFloat32-instance-method">.used</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="previous_info=(previous_info:NamedTuple())-class-method">
+      <div class="signature">
+        
+        def self.<strong>previous_info=</strong>(previous_info : NamedTuple())
+
+        <a class="method-permalink" href="#previous_info%3D%28previous_info%3ANamedTuple%28%29%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the previous used, idle and total CPU time. Used to store the previous CPU time informations to calculate the percentage in<code><a href="../Hardware/CPU.html#used%28update%3Dtrue%29%3AFloat32-instance-method">.used</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="guest:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>guest</strong> : Int32
+
+        <a class="method-permalink" href="#guest%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "guest" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="guest_nice:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>guest_nice</strong> : Int32
+
+        <a class="method-permalink" href="#guest_nice%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "guest_nice" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="idle:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>idle</strong> : Int32
+
+        <a class="method-permalink" href="#idle%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "idle" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="info:NamedTuple()-instance-method">
+      <div class="signature">
+        
+        def <strong>info</strong> : NamedTuple()
+
+        <a class="method-permalink" href="#info%3ANamedTuple%28%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the current used, idle and total CPU time.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="iowait:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>iowait</strong> : Int32
+
+        <a class="method-permalink" href="#iowait%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "iowait" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="irq:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>irq</strong> : Int32
+
+        <a class="method-permalink" href="#irq%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "irq" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="nice:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>nice</strong> : Int32
+
+        <a class="method-permalink" href="#nice%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "nice" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="softirq:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>softirq</strong> : Int32
+
+        <a class="method-permalink" href="#softirq%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "softirq" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="stat:Array(Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>stat</strong> : Array(Int32)
+
+        <a class="method-permalink" href="#stat%3AArray%28Int32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns a parsed <code>/proc/stat</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="steal:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>steal</strong> : Int32
+
+        <a class="method-permalink" href="#steal%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "steal" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="system:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>system</strong> : Int32
+
+        <a class="method-permalink" href="#system%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "system" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="used(update=true):Float32-instance-method">
+      <div class="signature">
+        
+        def <strong>used</strong>(update = <span class="n">true</span>) : Float32
+
+        <a class="method-permalink" href="#used%28update%3Dtrue%29%3AFloat32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the CPU used in percentage based on <code><a href="../Hardware/CPU.html#previous_info%3ANamedTuple%28%29-class-method">.previous_info</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L47" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="user:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>user</strong> : Int32
+
+        <a class="method-permalink" href="#user%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "user" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

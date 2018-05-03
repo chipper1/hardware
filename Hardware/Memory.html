@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/j8r/hardware">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Hardware::Memory - github.com/j8r/hardware</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/j8r/hardware/Hardware" data-name="hardware">
+      <a href="../Hardware.html">Hardware</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/j8r/hardware/Hardware/CPU" data-name="hardware::cpu">
+      <a href="../Hardware/CPU.html">CPU</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/j8r/hardware/Hardware/Memory" data-name="hardware::memory">
+      <a href="../Hardware/Memory.html">Memory</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/j8r/hardware/Hardware/PID" data-name="hardware::pid">
+      <a href="../Hardware/PID.html">PID</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Hardware::Memory
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Hardware/Memory.html">Hardware::Memory</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>Memory related informations of your system.</p>
+
+<pre><code>memory <span class="o">=</span> <span class="t">Hardware</span><span class="t">::</span><span class="t">Memory</span>.<span class="k">new</span>
+memory.used         <span class="c"># =&gt; 2731404</span>
+memory.percent.to_i <span class="c"># =&gt; 32</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/memory.cr#L8" target="_blank">hardware/memory.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+          <div class="summary"><p>Creates a new <code><a href="../Hardware/Memory.html">Hardware::Memory</a></code> based on the current memory state.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#available%3AInt32-instance-method" class="signature"><strong>#available</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the available memory in KiloBytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#meminfo%3AHash%28String%2CInt64%29-instance-method" class="signature"><strong>#meminfo</strong> : Hash(String, Int64)</a>
+        
+          <div class="summary"><p>Returns an Hash from a parsed <code>/proc/meminfo</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#percent%28used%3Dtrue%29%3AFloat32-instance-method" class="signature"><strong>#percent</strong>(used = <span class="n">true</span>) : Float32</a>
+        
+          <div class="summary"><p>Returns either the used/available memory in percentage.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#total%3AInt32-instance-method" class="signature"><strong>#total</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the total memory in KiloBytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#used%3AInt32-instance-method" class="signature"><strong>#used</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the memory used in KiloBytes.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Creates a new <code><a href="../Hardware/Memory.html">Hardware::Memory</a></code> based on the current memory state.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/memory.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="available:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>available</strong> : Int32
+
+        <a class="method-permalink" href="#available%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the available memory in KiloBytes.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/memory.cr#L28" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="meminfo:Hash(String,Int64)-instance-method">
+      <div class="signature">
+        
+        def <strong>meminfo</strong> : Hash(String, Int64)
+
+        <a class="method-permalink" href="#meminfo%3AHash%28String%2CInt64%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns an Hash from a parsed <code>/proc/meminfo</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/memory.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="percent(used=true):Float32-instance-method">
+      <div class="signature">
+        
+        def <strong>percent</strong>(used = <span class="n">true</span>) : Float32
+
+        <a class="method-permalink" href="#percent%28used%3Dtrue%29%3AFloat32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns either the used/available memory in percentage.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/memory.cr#L44" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="total:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>total</strong> : Int32
+
+        <a class="method-permalink" href="#total%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the total memory in KiloBytes.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/memory.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="used:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>used</strong> : Int32
+
+        <a class="method-permalink" href="#used%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the memory used in KiloBytes.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/memory.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta id="repository-name" content="github.com/j8r/hardware">
+  <meta id="repository-name" content="github.com/crystal-community/hardware">
   <link href="../css/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="../js/doc.js"></script>
-  <title>Hardware::PID - github.com/j8r/hardware</title>
+  <title>Hardware::PID - github.com/crystal-community/hardware</title>
 </head>
 <body>
 
@@ -20,23 +20,38 @@
 
   <ul>
   
-  <li class="parent open current" data-id="github.com/j8r/hardware/Hardware" data-name="hardware">
+  <li class="parent open current" data-id="github.com/crystal-community/hardware/Hardware" data-name="hardware">
       <a href="../Hardware.html">Hardware</a>
       
         <ul>
   
-  <li class=" " data-id="github.com/j8r/hardware/Hardware/CPU" data-name="hardware::cpu">
+  <li class=" " data-id="github.com/crystal-community/hardware/Hardware/CPU" data-name="hardware::cpu">
       <a href="../Hardware/CPU.html">CPU</a>
       
     </li>
   
-  <li class=" " data-id="github.com/j8r/hardware/Hardware/Memory" data-name="hardware::memory">
+  <li class=" " data-id="github.com/crystal-community/hardware/Hardware/Memory" data-name="hardware::memory">
       <a href="../Hardware/Memory.html">Memory</a>
       
     </li>
   
-  <li class=" current" data-id="github.com/j8r/hardware/Hardware/PID" data-name="hardware::pid">
+  <li class=" " data-id="github.com/crystal-community/hardware/Hardware/Net" data-name="hardware::net">
+      <a href="../Hardware/Net.html">Net</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/crystal-community/hardware/Hardware/PID" data-name="hardware::pid">
       <a href="../Hardware/PID.html">PID</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/crystal-community/hardware/Hardware/PID/Stat" data-name="hardware::pid::stat">
+      <a href="../Hardware/PID/Stat.html">Stat</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -91,7 +106,7 @@ loop <span class="k">do</span>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L13" target="_blank">hardware/pid.cr</a>
+      <a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L13" target="_blank">hardware/pid.cr</a>
     
     <br/>
   
@@ -160,30 +175,9 @@ loop <span class="k">do</span>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#cmajflt%3AInt32-instance-method" class="signature"><strong>#cmajflt</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "cmajflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#cmdline%3AString-instance-method" class="signature"><strong>#cmdline</strong> : String</a>
         
           <div class="summary"><p>Returns <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/cmdline</code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#cminflt%3AInt32-instance-method" class="signature"><strong>#cminflt</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "cminflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#comm%3AString-instance-method" class="signature"><strong>#comm</strong> : String</a>
-        
-          <div class="summary"><p>Returns the "comm" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
         
       </li>
     
@@ -204,20 +198,28 @@ loop <span class="k">do</span>
       <li class="entry-summary">
         <a href="#cpu_time_previous%3AInt32-instance-method" class="signature"><strong>#cpu_time_previous</strong> : Int32</a>
         
+          <div class="summary"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#cpu_time_previous%3D%28cpu_time_previous%3AInt32%29-instance-method" class="signature"><strong>#cpu_time_previous=</strong>(cpu_time_previous : Int32)</a>
+        
+          <div class="summary"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#cpu_total_previous%3AInt32-instance-method" class="signature"><strong>#cpu_total_previous</strong> : Int32</a>
         
+          <div class="summary"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#cpu_total_previous%3D%28cpu_total_previous%3AInt32%29-instance-method" class="signature"><strong>#cpu_total_previous=</strong>(cpu_total_previous : Int32)</a>
+        
+          <div class="summary"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
         
       </li>
     
@@ -229,44 +231,9 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#cstime%3AInt32-instance-method" class="signature"><strong>#cstime</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "cstime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#cutime%3AInt32-instance-method" class="signature"><strong>#cutime</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "cutime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#exe%3AString%3F-instance-method" class="signature"><strong>#exe</strong> : String?</a>
         
           <div class="summary"><p>Returns <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/exe</code> if readable.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#flags%3AInt32-instance-method" class="signature"><strong>#flags</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "flags" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#itrealvalue%3AInt32-instance-method" class="signature"><strong>#itrealvalue</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "itrealvalue" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#majflt%3AInt32-instance-method" class="signature"><strong>#majflt</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "majflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
         
       </li>
     
@@ -278,13 +245,6 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#minflt%3AInt32-instance-method" class="signature"><strong>#minflt</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "minflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#name-instance-method" class="signature"><strong>#name</strong></a>
         
           <div class="summary"><p>Returns the PID name based on <code><a href="../Hardware/PID.html#exe%3AString%3F-instance-method">#exe</a></code> or <code><a href="../Hardware/PID.html#cmdline%3AString-instance-method">#cmdline</a></code>.</p></div>
@@ -292,23 +252,9 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#nice%3AInt32-instance-method" class="signature"><strong>#nice</strong> : Int32</a>
+        <a href="#net-instance-method" class="signature"><strong>#net</strong></a>
         
-          <div class="summary"><p>Returns the "nice" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#numthreads%3AInt32-instance-method" class="signature"><strong>#numthreads</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "numthreads" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#pgrp%3AInt32-instance-method" class="signature"><strong>#pgrp</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "pgrp" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
+          <div class="summary"><p>Returns <code><a href="../Hardware/Net.html">Hardware::Net</a></code> for <code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code></p></div>
         
       </li>
     
@@ -320,51 +266,9 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#ppid%3AInt32-instance-method" class="signature"><strong>#ppid</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "ppid" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#priority%3AInt32-instance-method" class="signature"><strong>#priority</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "priority" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#rss%3AInt32-instance-method" class="signature"><strong>#rss</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "rss" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#session%3AInt32-instance-method" class="signature"><strong>#session</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "session" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#starttime%3AInt32-instance-method" class="signature"><strong>#starttime</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "starttime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#stat-instance-method" class="signature"><strong>#stat</strong></a>
         
           <div class="summary"><p>Returns a parsed <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/stat</code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#state%3AString-instance-method" class="signature"><strong>#state</strong> : String</a>
-        
-          <div class="summary"><p>Returns the "state" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
         
       </li>
     
@@ -379,41 +283,6 @@ loop <span class="k">do</span>
         <a href="#status%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#status</strong> : Hash(String, String)</a>
         
           <div class="summary"><p>Returns a parsed <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/status</code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#stime%3AInt32-instance-method" class="signature"><strong>#stime</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "stime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#tpgid%3AInt32-instance-method" class="signature"><strong>#tpgid</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "tpgid" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#tty_nr%3AInt32-instance-method" class="signature"><strong>#tty_nr</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "tty_nr" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#utime%3AInt32-instance-method" class="signature"><strong>#utime</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "utime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#vsize%3AInt32-instance-method" class="signature"><strong>#vsize</strong> : Int32</a>
-        
-          <div class="summary"><p>Returns the "vsize" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
         
       </li>
     
@@ -474,7 +343,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -492,7 +361,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -515,7 +384,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L44" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -533,7 +402,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -551,7 +420,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -569,7 +438,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L53" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L55" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -578,24 +447,6 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
 
 
   <h2>Instance Method Detail</h2>
-  
-    <div class="entry-detail" id="cmajflt:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>cmajflt</strong> : Int32
-
-        <a class="method-permalink" href="#cmajflt%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "cmajflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
   
     <div class="entry-detail" id="cmdline:String-instance-method">
       <div class="signature">
@@ -610,43 +461,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L68" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="cminflt:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>cminflt</strong> : Int32
-
-        <a class="method-permalink" href="#cminflt%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "cminflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="comm:String-instance-method">
-      <div class="signature">
-        
-        def <strong>comm</strong> : String
-
-        <a class="method-permalink" href="#comm%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "comm" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L127" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L70" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -664,7 +479,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L63" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -682,7 +497,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L75" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -695,10 +510,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_time_previous%3AInt32-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -711,10 +528,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_time_previous%3D%28cpu_time_previous%3AInt32%29-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -727,10 +546,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_total_previous%3AInt32-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -743,10 +564,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_total_previous%3D%28cpu_total_previous%3AInt32%29-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -764,43 +587,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L89" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="cstime:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>cstime</strong> : Int32
-
-        <a class="method-permalink" href="#cstime%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "cstime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="cutime:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>cutime</strong> : Int32
-
-        <a class="method-permalink" href="#cutime%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "cutime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -818,61 +605,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L102" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="flags:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>flags</strong> : Int32
-
-        <a class="method-permalink" href="#flags%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "flags" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="itrealvalue:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>itrealvalue</strong> : Int32
-
-        <a class="method-permalink" href="#itrealvalue%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "itrealvalue" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="majflt:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>majflt</strong> : Int32
-
-        <a class="method-permalink" href="#majflt%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "majflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -890,25 +623,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L111" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="minflt:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>minflt</strong> : Int32
-
-        <a class="method-permalink" href="#minflt%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "minflt" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L113" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -926,61 +641,25 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L117" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="nice:Int32-instance-method">
+    <div class="entry-detail" id="net-instance-method">
       <div class="signature">
         
-        def <strong>nice</strong> : Int32
+        def <strong>net</strong>
 
-        <a class="method-permalink" href="#nice%3AInt32-instance-method">#</a>
+        <a class="method-permalink" href="#net-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns the "nice" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
+        <div class="doc"><p>Returns <code><a href="../Hardware/Net.html">Hardware::Net</a></code> for <code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code></p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="numthreads:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>numthreads</strong> : Int32
-
-        <a class="method-permalink" href="#numthreads%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "numthreads" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="pgrp:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>pgrp</strong> : Int32
-
-        <a class="method-permalink" href="#pgrp%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "pgrp" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L124" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -998,97 +677,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L15" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="ppid:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>ppid</strong> : Int32
-
-        <a class="method-permalink" href="#ppid%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "ppid" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="priority:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>priority</strong> : Int32
-
-        <a class="method-permalink" href="#priority%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "priority" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="rss:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>rss</strong> : Int32
-
-        <a class="method-permalink" href="#rss%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "rss" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="session:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>session</strong> : Int32
-
-        <a class="method-permalink" href="#session%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "session" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="starttime:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>starttime</strong> : Int32
-
-        <a class="method-permalink" href="#starttime%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "starttime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1106,25 +695,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L122" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="state:String-instance-method">
-      <div class="signature">
-        
-        def <strong>state</strong> : String
-
-        <a class="method-permalink" href="#state%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "state" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L132" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L129" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1142,7 +713,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L167" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L182" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1160,97 +731,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L172" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="stime:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>stime</strong> : Int32
-
-        <a class="method-permalink" href="#stime%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "stime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="tpgid:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>tpgid</strong> : Int32
-
-        <a class="method-permalink" href="#tpgid%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "tpgid" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="tty_nr:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>tty_nr</strong> : Int32
-
-        <a class="method-permalink" href="#tty_nr%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "tty_nr" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="utime:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>utime</strong> : Int32
-
-        <a class="method-permalink" href="#utime%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "utime" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="vsize:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>vsize</strong> : Int32
-
-        <a class="method-permalink" href="#vsize%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the "vsize" field of <code><a href="../Hardware/PID.html#stat-instance-method">#stat</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/j8r/hardware/blob/b05ca02d457112c8df6adc5ed9c3171800440017/src/hardware/pid.cr#L137" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/pid.cr#L187" target="_blank">View source</a>]
         
       </div>
     </div>

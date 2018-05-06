@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/crystal-community/hardware">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Hardware::Net - github.com/crystal-community/hardware</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/crystal-community/hardware/Hardware" data-name="hardware">
+      <a href="../Hardware.html">Hardware</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/crystal-community/hardware/Hardware/CPU" data-name="hardware::cpu">
+      <a href="../Hardware/CPU.html">CPU</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/crystal-community/hardware/Hardware/Memory" data-name="hardware::memory">
+      <a href="../Hardware/Memory.html">Memory</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/crystal-community/hardware/Hardware/Net" data-name="hardware::net">
+      <a href="../Hardware/Net.html">Net</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/crystal-community/hardware/Hardware/PID" data-name="hardware::pid">
+      <a href="../Hardware/PID.html">PID</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/crystal-community/hardware/Hardware/PID/Stat" data-name="hardware::pid::stat">
+      <a href="../Hardware/PID/Stat.html">Stat</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Hardware::Net
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Hardware/Net.html">Hardware::Net</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>Network informations about the system or a process like the brandwidth use.</p>
+
+<p>Example of network brandwidth calculation:</p>
+
+<pre><code>net <span class="o">=</span> <span class="t">Hardware</span><span class="t">::</span><span class="t">Net</span>.<span class="k">new</span> <span class="c"># System network stats</span>
+old_in, old_out <span class="o">=</span> net.in_octets, net.out_octets
+loop <span class="k">do</span>
+  net <span class="o">=</span> <span class="t">Hardware</span><span class="t">::</span><span class="t">Net</span>.<span class="k">new</span> <span class="c"># Update network stats</span>
+  sleep <span class="n">1</span>
+  now_in, now_out <span class="o">=</span> net.in_octets, net.out_octets
+  puts <span class="s">&quot;down: </span><span class="i">#{</span></span>(now_in <span class="o">-</span> old_in) <span class="o">/</span> <span class="n">1000</span><span class="s"><span class="i">}</span>kB/s | up: </span><span class="i">#{</span></span>(now_out <span class="o">-</span> old_out) <span class="o">/</span> <span class="n">1000</span><span class="s"><span class="i">}</span>kB/s&quot;</span> <span class="c"># =&gt; down: 427kB/s | up: 24kB/s</span>
+  old_in, old_out <span class="o">=</span> now_in, now_out
+<span class="k">end</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L15" target="_blank">hardware/net.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28pid%3AInt32%3DProcess.pid%29-class-method" class="signature"><strong>.new</strong>(pid : Int32 = <span class="t">Process</span>.pid)</a>
+        
+          <div class="summary"><p>Creates a new <code><a href="../Hardware/Net.html">Hardware::Net</a></code> for a PID.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#in_bcast_octets%3AInt64-instance-method" class="signature"><strong>#in_bcast_octets</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InBcastOctets" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_bcast_pkts%3AInt64-instance-method" class="signature"><strong>#in_bcast_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InBcastPkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_ce_pkts%3AInt64-instance-method" class="signature"><strong>#in_ce_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InCePkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_csum_esrrors%3AInt64-instance-method" class="signature"><strong>#in_csum_esrrors</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InCsumEsrrors" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_ect0_pkts%3AInt64-instance-method" class="signature"><strong>#in_ect0_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InEct0Pkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_ect1_pkts%3AInt64-instance-method" class="signature"><strong>#in_ect1_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InEct1Pkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_mcast_octets%3AInt64-instance-method" class="signature"><strong>#in_mcast_octets</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InMcastOctets" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_mcast_pkts%3AInt64-instance-method" class="signature"><strong>#in_mcast_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InMcastPkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_no_ect_pkts%3AInt64-instance-method" class="signature"><strong>#in_no_ect_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InNoEctPkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_no_routes%3AInt64-instance-method" class="signature"><strong>#in_no_routes</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InNoRoutes" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_octets%3AInt64-instance-method" class="signature"><strong>#in_octets</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InOctets" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_truncated_pkts%3AInt64-instance-method" class="signature"><strong>#in_truncated_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "InTruncatedPkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#out_bcast_octets%3AInt64-instance-method" class="signature"><strong>#out_bcast_octets</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "OutBcastOctets" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#out_bcast_pkts%3AInt64-instance-method" class="signature"><strong>#out_bcast_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "OutBcastPkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#out_mcast_octets%3AInt64-instance-method" class="signature"><strong>#out_mcast_octets</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "OutMcastOctets" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#out_mcast_pkts%3AInt64-instance-method" class="signature"><strong>#out_mcast_pkts</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "OutMcastPkts" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#out_octets%3AInt64-instance-method" class="signature"><strong>#out_octets</strong> : Int64</a>
+        
+          <div class="summary"><p>Returns the "OutOctets" field of <code>net/netstat</code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(pid:Int32=Process.pid)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pid : Int32 = <span class="t">Process</span>.pid)
+
+        <a class="method-permalink" href="#new%28pid%3AInt32%3DProcess.pid%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Creates a new <code><a href="../Hardware/Net.html">Hardware::Net</a></code> for a PID.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="in_bcast_octets:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_bcast_octets</strong> : Int64
+
+        <a class="method-permalink" href="#in_bcast_octets%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InBcastOctets" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_bcast_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_bcast_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#in_bcast_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InBcastPkts" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_ce_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_ce_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#in_ce_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InCePkts" field of <code>net/netstat</code>.  Only in recent versions of Linux </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_csum_esrrors:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_csum_esrrors</strong> : Int64
+
+        <a class="method-permalink" href="#in_csum_esrrors%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InCsumEsrrors" field of <code>net/netstat</code>.  Only in recent versions of Linux </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_ect0_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_ect0_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#in_ect0_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InEct0Pkts" field of <code>net/netstat</code>.  Only in recent versions of Linux </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_ect1_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_ect1_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#in_ect1_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InEct1Pkts" field of <code>net/netstat</code>.  Only in recent versions of Linux </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_mcast_octets:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_mcast_octets</strong> : Int64
+
+        <a class="method-permalink" href="#in_mcast_octets%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InMcastOctets" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_mcast_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_mcast_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#in_mcast_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InMcastPkts" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_no_ect_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_no_ect_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#in_no_ect_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InNoEctPkts" field of <code>net/netstat</code>.  Only in recent versions of Linux </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_no_routes:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_no_routes</strong> : Int64
+
+        <a class="method-permalink" href="#in_no_routes%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InNoRoutes" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_octets:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_octets</strong> : Int64
+
+        <a class="method-permalink" href="#in_octets%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InOctets" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_truncated_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>in_truncated_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#in_truncated_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "InTruncatedPkts" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="out_bcast_octets:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>out_bcast_octets</strong> : Int64
+
+        <a class="method-permalink" href="#out_bcast_octets%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "OutBcastOctets" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="out_bcast_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>out_bcast_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#out_bcast_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "OutBcastPkts" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="out_mcast_octets:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>out_mcast_octets</strong> : Int64
+
+        <a class="method-permalink" href="#out_mcast_octets%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "OutMcastOctets" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="out_mcast_pkts:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>out_mcast_pkts</strong> : Int64
+
+        <a class="method-permalink" href="#out_mcast_pkts%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "OutMcastPkts" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="out_octets:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>out_octets</strong> : Int64
+
+        <a class="method-permalink" href="#out_octets%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the "OutOctets" field of <code>net/netstat</code>. </p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/0803ced6a74efa18cf60207d68014da5e7de4595/src/hardware/net.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

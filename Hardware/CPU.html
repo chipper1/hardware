@@ -102,7 +102,7 @@
 <pre><code>cpu <span class="o">=</span> <span class="t">Hardware</span><span class="t">::</span><span class="t">CPU</span>.<span class="k">new</span>
 loop <span class="k">do</span>
   sleep <span class="n">1</span>
-  cpu.used.to_i <span class="c"># =&gt; 17</span>
+  cpu.usage.to_i <span class="c"># =&gt; 17</span>
 <span class="k">end</span></code></pre>
 
 
@@ -121,7 +121,7 @@ loop <span class="k">do</span>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L10" target="_blank">hardware/cpu.cr</a>
+      <a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L10" target="_blank">hardware/cpu.cr</a>
     
     <br/>
   
@@ -143,25 +143,6 @@ loop <span class="k">do</span>
   </ul>
 
 
-
-  <h2>Class Method Summary</h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#previous_info%3ANamedTuple%28%29-class-method" class="signature"><strong>.previous_info</strong> : NamedTuple()</a>
-        
-          <div class="summary"><p>Returns the previous used, idle and total CPU time.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#previous_info%3D%28previous_info%3ANamedTuple%28%29%29-class-method" class="signature"><strong>.previous_info=</strong>(previous_info : NamedTuple())</a>
-        
-          <div class="summary"><p>Returns the previous used, idle and total CPU time.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -190,9 +171,9 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#info%3ANamedTuple%28%29-instance-method" class="signature"><strong>#info</strong> : NamedTuple()</a>
+        <a href="#idle_wait%3AInt32-instance-method" class="signature"><strong>#idle_wait</strong> : Int32</a>
         
-          <div class="summary"><p>Returns the current used, idle and total CPU time.</p></div>
+          <div class="summary"><p>Returns the CPU time used, which includes <code><a href="../Hardware/CPU.html#idle%3AInt32-instance-method">#idle</a></code> and <code><a href="../Hardware/CPU.html#iowait%3AInt32-instance-method">#iowait</a></code></p></div>
         
       </li>
     
@@ -218,6 +199,20 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
+        <a href="#previous_idle_wait%3AInt32-instance-method" class="signature"><strong>#previous_idle_wait</strong> : Int32</a>
+        
+          <div class="summary"><p>Previous idle CPU time</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#previous_used%3AInt32-instance-method" class="signature"><strong>#previous_used</strong> : Int32</a>
+        
+          <div class="summary"><p>Previous used CPU time</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#softirq%3AInt32-instance-method" class="signature"><strong>#softirq</strong> : Int32</a>
         
           <div class="summary"><p>Returns the "softirq" field of <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code>.</p></div>
@@ -227,7 +222,7 @@ loop <span class="k">do</span>
       <li class="entry-summary">
         <a href="#stat%3AArray%28Int32%29-instance-method" class="signature"><strong>#stat</strong> : Array(Int32)</a>
         
-          <div class="summary"><p>Returns a parsed <code>/proc/stat</code>.</p></div>
+          <div class="summary"><p>Returns a parsed <code>/proc/stat</code></p></div>
         
       </li>
     
@@ -246,9 +241,30 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#used%28update%3Dtrue%29%3AFloat32-instance-method" class="signature"><strong>#used</strong>(update = <span class="n">true</span>) : Float32</a>
+        <a href="#total%3AInt32-instance-method" class="signature"><strong>#total</strong> : Int32</a>
         
-          <div class="summary"><p>Returns the CPU used in percentage based on <code><a href="../Hardware/CPU.html#previous_info%3ANamedTuple%28%29-class-method">.previous_info</a></code>.</p></div>
+          <div class="summary"><p>Returns the total CPU time, the sum of <code><a href="../Hardware/CPU.html#idle%3AInt32-instance-method">#idle</a></code> and <code><a href="../Hardware/CPU.html#used%3AInt32-instance-method">#used</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_stat%3AArray%28Int32%29-instance-method" class="signature"><strong>#update_stat</strong> : Array(Int32)</a>
+        
+          <div class="summary"><p>Update the stats stored in <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#usage%28update%3Dtrue%29%3AFloat32-instance-method" class="signature"><strong>#usage</strong>(update = <span class="n">true</span>) : Float32</a>
+        
+          <div class="summary"><p>Returns the CPU used in percentage based on <code>.previous_info</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#used%3AInt32-instance-method" class="signature"><strong>#used</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the used CPU time, which includes <code><a href="../Hardware/CPU.html#user%3AInt32-instance-method">#user</a></code>, <code><a href="../Hardware/CPU.html#nice%3AInt32-instance-method">#nice</a></code>, <code><a href="../Hardware/CPU.html#system%3AInt32-instance-method">#system</a></code>, <code><a href="../Hardware/CPU.html#irq%3AInt32-instance-method">#irq</a></code>, <code><a href="../Hardware/CPU.html#softirq%3AInt32-instance-method">#softirq</a></code> and <code><a href="../Hardware/CPU.html#steal%3AInt32-instance-method">#steal</a></code></p></div>
         
       </li>
     
@@ -315,52 +331,13 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
   
 
 
-
-  <h2>Class Method Detail</h2>
-  
-    <div class="entry-detail" id="previous_info:NamedTuple()-class-method">
-      <div class="signature">
-        
-        def self.<strong>previous_info</strong> : NamedTuple()
-
-        <a class="method-permalink" href="#previous_info%3ANamedTuple%28%29-class-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the previous used, idle and total CPU time. Used to store the previous CPU time informations to calculate the percentage in<code><a href="../Hardware/CPU.html#used%28update%3Dtrue%29%3AFloat32-instance-method">.used</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L12" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="previous_info=(previous_info:NamedTuple())-class-method">
-      <div class="signature">
-        
-        def self.<strong>previous_info=</strong>(previous_info : NamedTuple())
-
-        <a class="method-permalink" href="#previous_info%3D%28previous_info%3ANamedTuple%28%29%29-class-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Returns the previous used, idle and total CPU time. Used to store the previous CPU time informations to calculate the percentage in<code><a href="../Hardware/CPU.html#used%28update%3Dtrue%29%3AFloat32-instance-method">.used</a></code>.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L12" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 
@@ -379,7 +356,7 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -397,7 +374,7 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -415,25 +392,25 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="info:NamedTuple()-instance-method">
+    <div class="entry-detail" id="idle_wait:Int32-instance-method">
       <div class="signature">
         
-        def <strong>info</strong> : NamedTuple()
+        def <strong>idle_wait</strong> : Int32
 
-        <a class="method-permalink" href="#info%3ANamedTuple%28%29-instance-method">#</a>
+        <a class="method-permalink" href="#idle_wait%3AInt32-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns the current used, idle and total CPU time.</p></div>
+        <div class="doc"><p>Returns the CPU time used, which includes <code><a href="../Hardware/CPU.html#idle%3AInt32-instance-method">#idle</a></code> and <code><a href="../Hardware/CPU.html#iowait%3AInt32-instance-method">#iowait</a></code></p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L35" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -451,7 +428,7 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -469,7 +446,7 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -487,7 +464,43 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="previous_idle_wait:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>previous_idle_wait</strong> : Int32
+
+        <a class="method-permalink" href="#previous_idle_wait%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Previous idle CPU time</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="previous_used:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>previous_used</strong> : Int32
+
+        <a class="method-permalink" href="#previous_used%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Previous used CPU time</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -505,7 +518,7 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -518,12 +531,12 @@ loop <span class="k">do</span>
         <a class="method-permalink" href="#stat%3AArray%28Int32%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns a parsed <code>/proc/stat</code>.</p></div>
+        <div class="doc"><p>Returns a parsed <code>/proc/stat</code></p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -541,7 +554,7 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -559,25 +572,79 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="used(update=true):Float32-instance-method">
+    <div class="entry-detail" id="total:Int32-instance-method">
       <div class="signature">
         
-        def <strong>used</strong>(update = <span class="n">true</span>) : Float32
+        def <strong>total</strong> : Int32
 
-        <a class="method-permalink" href="#used%28update%3Dtrue%29%3AFloat32-instance-method">#</a>
+        <a class="method-permalink" href="#total%3AInt32-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns the CPU used in percentage based on <code><a href="../Hardware/CPU.html#previous_info%3ANamedTuple%28%29-class-method">.previous_info</a></code>.</p></div>
+        <div class="doc"><p>Returns the total CPU time, the sum of <code><a href="../Hardware/CPU.html#idle%3AInt32-instance-method">#idle</a></code> and <code><a href="../Hardware/CPU.html#used%3AInt32-instance-method">#used</a></code></p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L47" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L49" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_stat:Array(Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>update_stat</strong> : Array(Int32)
+
+        <a class="method-permalink" href="#update_stat%3AArray%28Int32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Update the stats stored in <code><a href="../Hardware/CPU.html#stat%3AArray%28Int32%29-instance-method">#stat</a></code></p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="usage(update=true):Float32-instance-method">
+      <div class="signature">
+        
+        def <strong>usage</strong>(update = <span class="n">true</span>) : Float32
+
+        <a class="method-permalink" href="#usage%28update%3Dtrue%29%3AFloat32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the CPU used in percentage based on <code>.previous_info</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L54" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="used:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>used</strong> : Int32
+
+        <a class="method-permalink" href="#used%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the used CPU time, which includes <code><a href="../Hardware/CPU.html#user%3AInt32-instance-method">#user</a></code>, <code><a href="../Hardware/CPU.html#nice%3AInt32-instance-method">#nice</a></code>, <code><a href="../Hardware/CPU.html#system%3AInt32-instance-method">#system</a></code>, <code><a href="../Hardware/CPU.html#irq%3AInt32-instance-method">#irq</a></code>, <code><a href="../Hardware/CPU.html#softirq%3AInt32-instance-method">#softirq</a></code> and <code><a href="../Hardware/CPU.html#steal%3AInt32-instance-method">#steal</a></code></p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -595,7 +662,7 @@ loop <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/cpu.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/cpu.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>

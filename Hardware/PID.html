@@ -104,8 +104,8 @@ app <span class="o">=</span> <span class="t">Hardware</span><span class="t">::</
 
 loop <span class="k">do</span>
   sleep <span class="n">1</span>
-  pid.cpu_used      <span class="c"># =&gt; 1.5</span>
-  app.cpu_used.to_i <span class="c"># =&gt; 4</span>
+  pid.cpu_usage      <span class="c"># =&gt; 1.5</span>
+  app.cpu_usage.to_i <span class="c"># =&gt; 4</span>
 <span class="k">end</span></code></pre>
 
 
@@ -124,7 +124,7 @@ loop <span class="k">do</span>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L13" target="_blank">hardware/pid.cr</a>
+      <a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L13" target="_blank">hardware/pid.cr</a>
     
     <br/>
   
@@ -137,14 +137,14 @@ loop <span class="k">do</span>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28pid%3AInt32%3DProcess.pid%2Ccpu_time%3Dtrue%2Ccpu_total%3Dtrue%29-class-method" class="signature"><strong>.new</strong>(pid : Int32 = <span class="t">Process</span>.pid, cpu_time = <span class="n">true</span>, cpu_total = <span class="n">true</span>)</a>
+        <a href="#new%28pid%3AInt32%3DProcess.pid%2Ccpu_total%3Dtrue%29-class-method" class="signature"><strong>.new</strong>(pid : Int32 = <span class="t">Process</span>.pid, cpu_total = <span class="n">true</span>)</a>
         
           <div class="summary"><p>Creates a new <code><a href="../Hardware/PID.html">Hardware::PID</a></code> Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_current%3AInt32-class-method">#cpu_total_current</a></code> (useful if lots of <code><a href="../Hardware/PID.html">Hardware::PID</a></code> are used)</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28executable%3AString%2Ccpu_time%3Dtrue%2Ccpu_total%3Dtrue%29-class-method" class="signature"><strong>.new</strong>(executable : String, cpu_time = <span class="n">true</span>, cpu_total = <span class="n">true</span>)</a>
+        <a href="#new%28executable%3AString%2Ccpu_total%3Dtrue%29-class-method" class="signature"><strong>.new</strong>(executable : String, cpu_total = <span class="n">true</span>)</a>
         
           <div class="summary"><p>Creates a new <code><a href="../Hardware/PID.html">Hardware::PID</a></code> by finding the <code>executable</code>'s pid.</p></div>
         
@@ -158,7 +158,7 @@ loop <span class="k">do</span>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#all%28cpu_time%3Dfalse%2Ccpu_total%3Dfalse%2C%26block%29-class-method" class="signature"><strong>.all</strong>(cpu_time = <span class="n">false</span>, cpu_total = <span class="n">false</span>, &block)</a>
+        <a href="#all%28cpu_total%3Dfalse%2C%26block%29%3ANil-class-method" class="signature"><strong>.all</strong>(cpu_total = <span class="n">false</span>, &block) : Nil</a>
         
           <div class="summary"><p>Yields a <code><a href="../Hardware/PID.html">Hardware::PID</a></code> for each PID present on the system.</p></div>
         
@@ -179,7 +179,7 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#get_pids%28executable%3AString%29-class-method" class="signature"><strong>.get_pids</strong>(executable : String)</a>
+        <a href="#get_pids%28executable%3AString%29%3AArray%28Int32%29-class-method" class="signature"><strong>.get_pids</strong>(executable : String) : Array(Int32)</a>
         
           <div class="summary"><p>Return all pids corresponding of a given <code>executable</code> name.</p></div>
         
@@ -207,7 +207,7 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#cpu_time%28children%3Dfalse%29-instance-method" class="signature"><strong>#cpu_time</strong>(children = <span class="n">false</span>)</a>
+        <a href="#cpu_time%28children%3Dfalse%29%3AInt32-instance-method" class="signature"><strong>#cpu_time</strong>(children = <span class="n">false</span>) : Int32</a>
         
           <div class="summary"><p>Returns the CPU time without including ones from <code>children</code> processes.</p></div>
         
@@ -216,61 +216,66 @@ loop <span class="k">do</span>
       <li class="entry-summary">
         <a href="#cpu_time_previous%3AInt32-instance-method" class="signature"><strong>#cpu_time_previous</strong> : Int32</a>
         
-          <div class="summary"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
+          <div class="summary"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29%3AInt32-instance-method">#cpu_time</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#cpu_time_previous%3D%28cpu_time_previous%3AInt32%29-instance-method" class="signature"><strong>#cpu_time_previous=</strong>(cpu_time_previous : Int32)</a>
         
-          <div class="summary"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
+          <div class="summary"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29%3AInt32-instance-method">#cpu_time</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#cpu_total_previous%3AInt32-instance-method" class="signature"><strong>#cpu_total_previous</strong> : Int32</a>
         
-          <div class="summary"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
+          <div class="summary"><p>Previous <code>CPU.new.total</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#cpu_total_previous%3D%28cpu_total_previous%3AInt32%29-instance-method" class="signature"><strong>#cpu_total_previous=</strong>(cpu_total_previous : Int32)</a>
         
-          <div class="summary"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
+          <div class="summary"><p>Previous <code>CPU.new.total</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#cpu_used%3AFloat32-instance-method" class="signature"><strong>#cpu_used</strong> : Float32</a>
+        <a href="#cpu_usage%3AFloat32-instance-method" class="signature"><strong>#cpu_usage</strong> : Float32</a>
         
           <div class="summary"><p>Returns the CPU used in percentage.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#exe%3AString%3F-instance-method" class="signature"><strong>#exe</strong> : String?</a>
+        <a href="#exe%3AString-instance-method" class="signature"><strong>#exe</strong> : String</a>
         
           <div class="summary"><p>Returns <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/exe</code> if readable.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#memory-instance-method" class="signature"><strong>#memory</strong></a>
+        <a href="#exists%3F%3ABool-instance-method" class="signature"><strong>#exists?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#memory%3AInt32-instance-method" class="signature"><strong>#memory</strong> : Int32</a>
         
           <div class="summary"><p>Returns the actual memory used by the process.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name-instance-method" class="signature"><strong>#name</strong></a>
+        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
         
-          <div class="summary"><p>Returns the PID name based on <code><a href="../Hardware/PID.html#exe%3AString%3F-instance-method">#exe</a></code> or <code><a href="../Hardware/PID.html#cmdline%3AString-instance-method">#cmdline</a></code>.</p></div>
+          <div class="summary"><p>Returns the PID name based on <code><a href="../Hardware/PID.html#exe%3AString-instance-method">#exe</a></code> or <code><a href="../Hardware/PID.html#cmdline%3AString-instance-method">#cmdline</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#net-instance-method" class="signature"><strong>#net</strong></a>
+        <a href="#net%3ANet-instance-method" class="signature"><strong>#net</strong> : Net</a>
         
           <div class="summary"><p>Returns <code><a href="../Hardware/Net.html">Hardware::Net</a></code> for <code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code></p></div>
         
@@ -284,7 +289,7 @@ loop <span class="k">do</span>
       </li>
     
       <li class="entry-summary">
-        <a href="#stat-instance-method" class="signature"><strong>#stat</strong></a>
+        <a href="#stat%3AStat-instance-method" class="signature"><strong>#stat</strong> : Stat</a>
         
           <div class="summary"><p>Returns a parsed <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/stat</code>.</p></div>
         
@@ -347,12 +352,12 @@ loop <span class="k">do</span>
 
   <h2>Constructor Detail</h2>
   
-    <div class="entry-detail" id="new(pid:Int32=Process.pid,cpu_time=true,cpu_total=true)-class-method">
+    <div class="entry-detail" id="new(pid:Int32=Process.pid,cpu_total=true)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(pid : Int32 = <span class="t">Process</span>.pid, cpu_time = <span class="n">true</span>, cpu_total = <span class="n">true</span>)
+        def self.<strong>new</strong>(pid : Int32 = <span class="t">Process</span>.pid, cpu_total = <span class="n">true</span>)
 
-        <a class="method-permalink" href="#new%28pid%3AInt32%3DProcess.pid%2Ccpu_time%3Dtrue%2Ccpu_total%3Dtrue%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28pid%3AInt32%3DProcess.pid%2Ccpu_total%3Dtrue%29-class-method">#</a>
       </div>
       
         <div class="doc"><p>Creates a new <code><a href="../Hardware/PID.html">Hardware::PID</a></code>
@@ -361,17 +366,17 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="new(executable:String,cpu_time=true,cpu_total=true)-class-method">
+    <div class="entry-detail" id="new(executable:String,cpu_total=true)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(executable : String, cpu_time = <span class="n">true</span>, cpu_total = <span class="n">true</span>)
+        def self.<strong>new</strong>(executable : String, cpu_total = <span class="n">true</span>)
 
-        <a class="method-permalink" href="#new%28executable%3AString%2Ccpu_time%3Dtrue%2Ccpu_total%3Dtrue%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28executable%3AString%2Ccpu_total%3Dtrue%29-class-method">#</a>
       </div>
       
         <div class="doc"><p>Creates a new <code><a href="../Hardware/PID.html">Hardware::PID</a></code> by finding the <code>executable</code>'s pid.</p></div>
@@ -379,7 +384,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -389,12 +394,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
 
   <h2>Class Method Detail</h2>
   
-    <div class="entry-detail" id="all(cpu_time=false,cpu_total=false,&amp;block)-class-method">
+    <div class="entry-detail" id="all(cpu_total=false,&amp;block):Nil-class-method">
       <div class="signature">
         
-        def self.<strong>all</strong>(cpu_time = <span class="n">false</span>, cpu_total = <span class="n">false</span>, &block)
+        def self.<strong>all</strong>(cpu_total = <span class="n">false</span>, &block) : Nil
 
-        <a class="method-permalink" href="#all%28cpu_time%3Dfalse%2Ccpu_total%3Dfalse%2C%26block%29-class-method">#</a>
+        <a class="method-permalink" href="#all%28cpu_total%3Dfalse%2C%26block%29%3ANil-class-method">#</a>
       </div>
       
         <div class="doc"><p>Yields a <code><a href="../Hardware/PID.html">Hardware::PID</a></code> for each PID present on the system.</p></div>
@@ -402,7 +407,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -420,7 +425,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -438,17 +443,17 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="get_pids(executable:String)-class-method">
+    <div class="entry-detail" id="get_pids(executable:String):Array(Int32)-class-method">
       <div class="signature">
         
-        def self.<strong>get_pids</strong>(executable : String)
+        def self.<strong>get_pids</strong>(executable : String) : Array(Int32)
 
-        <a class="method-permalink" href="#get_pids%28executable%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#get_pids%28executable%3AString%29%3AArray%28Int32%29-class-method">#</a>
       </div>
       
         <div class="doc"><p>Return all pids corresponding of a given <code>executable</code> name.</p></div>
@@ -456,7 +461,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L55" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L54" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -479,7 +484,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L69" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L68" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -497,17 +502,17 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L64" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L63" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="cpu_time(children=false)-instance-method">
+    <div class="entry-detail" id="cpu_time(children=false):Int32-instance-method">
       <div class="signature">
         
-        def <strong>cpu_time</strong>(children = <span class="n">false</span>)
+        def <strong>cpu_time</strong>(children = <span class="n">false</span>) : Int32
 
-        <a class="method-permalink" href="#cpu_time%28children%3Dfalse%29-instance-method">#</a>
+        <a class="method-permalink" href="#cpu_time%28children%3Dfalse%29%3AInt32-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Returns the CPU time without including ones from <code>children</code> processes.</p></div>
@@ -515,7 +520,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L74" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -528,12 +533,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_time_previous%3AInt32-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
+        <div class="doc"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29%3AInt32-instance-method">#cpu_time</a></code>.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -546,12 +551,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_time_previous%3D%28cpu_time_previous%3AInt32%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29-instance-method">#cpu_time</a></code>.</p></div>
+        <div class="doc"><p>Previous <code><a href="../Hardware/PID.html#cpu_time%28children%3Dfalse%29%3AInt32-instance-method">#cpu_time</a></code>.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -564,12 +569,12 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_total_previous%3AInt32-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
+        <div class="doc"><p>Previous <code>CPU.new.total</code>.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -582,22 +587,22 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
         <a class="method-permalink" href="#cpu_total_previous%3D%28cpu_total_previous%3AInt32%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Previous <code>CPU.new.info[:total]</code>.</p></div>
+        <div class="doc"><p>Previous <code>CPU.new.total</code>.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="cpu_used:Float32-instance-method">
+    <div class="entry-detail" id="cpu_usage:Float32-instance-method">
       <div class="signature">
         
-        def <strong>cpu_used</strong> : Float32
+        def <strong>cpu_usage</strong> : Float32
 
-        <a class="method-permalink" href="#cpu_used%3AFloat32-instance-method">#</a>
+        <a class="method-permalink" href="#cpu_usage%3AFloat32-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Returns the CPU used in percentage.</p></div>
@@ -605,17 +610,17 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L90" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L89" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="exe:String?-instance-method">
+    <div class="entry-detail" id="exe:String-instance-method">
       <div class="signature">
         
-        def <strong>exe</strong> : String?
+        def <strong>exe</strong> : String
 
-        <a class="method-permalink" href="#exe%3AString%3F-instance-method">#</a>
+        <a class="method-permalink" href="#exe%3AString-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Returns <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/exe</code> if readable.</p></div>
@@ -623,17 +628,33 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L103" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L103" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="memory-instance-method">
+    <div class="entry-detail" id="exists?:Bool-instance-method">
       <div class="signature">
         
-        def <strong>memory</strong>
+        def <strong>exists?</strong> : Bool
 
-        <a class="method-permalink" href="#memory-instance-method">#</a>
+        <a class="method-permalink" href="#exists%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L107" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="memory:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>memory</strong> : Int32
+
+        <a class="method-permalink" href="#memory%3AInt32-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Returns the actual memory used by the process.</p></div>
@@ -641,35 +662,35 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L112" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="name-instance-method">
+    <div class="entry-detail" id="name:String-instance-method">
       <div class="signature">
         
-        def <strong>name</strong>
+        def <strong>name</strong> : String
 
-        <a class="method-permalink" href="#name-instance-method">#</a>
+        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns the PID name based on <code><a href="../Hardware/PID.html#exe%3AString%3F-instance-method">#exe</a></code> or <code><a href="../Hardware/PID.html#cmdline%3AString-instance-method">#cmdline</a></code>.</p></div>
+        <div class="doc"><p>Returns the PID name based on <code><a href="../Hardware/PID.html#exe%3AString-instance-method">#exe</a></code> or <code><a href="../Hardware/PID.html#cmdline%3AString-instance-method">#cmdline</a></code>.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L118" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L118" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="net-instance-method">
+    <div class="entry-detail" id="net:Net-instance-method">
       <div class="signature">
         
-        def <strong>net</strong>
+        def <strong>net</strong> : <a href="../Hardware/Net.html">Net</a>
 
-        <a class="method-permalink" href="#net-instance-method">#</a>
+        <a class="method-permalink" href="#net%3ANet-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Returns <code><a href="../Hardware/Net.html">Hardware::Net</a></code> for <code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code></p></div>
@@ -677,7 +698,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L123" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L125" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -695,17 +716,17 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="stat-instance-method">
+    <div class="entry-detail" id="stat:Stat-instance-method">
       <div class="signature">
         
-        def <strong>stat</strong>
+        def <strong>stat</strong> : <a href="../Hardware/PID/Stat.html">Stat</a>
 
-        <a class="method-permalink" href="#stat-instance-method">#</a>
+        <a class="method-permalink" href="#stat%3AStat-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Returns a parsed <code>/proc/</code><code><a href="../Hardware/PID.html#pid%3AInt32-instance-method">#pid</a></code><code>/stat</code>.</p></div>
@@ -713,7 +734,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L128" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L130" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -731,7 +752,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L181" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L135" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -749,7 +770,7 @@ Set to false to avoid setting <code><a href="../Hardware/PID.html#cpu_total_curr
       <br/>
       <div>
         
-          [<a href="https://github.com/crystal-community/hardware/blob/c3f38c48c8fe7fc9e77ce5771c8619b2b31af318/src/hardware/pid.cr#L186" target="_blank">View source</a>]
+          [<a href="https://github.com/crystal-community/hardware/blob/8570b474297cbac5d8fee2e0a6b09532d1f8b7f1/src/hardware/pid.cr#L140" target="_blank">View source</a>]
         
       </div>
     </div>
